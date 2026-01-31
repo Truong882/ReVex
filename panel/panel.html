@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReVex - HTTP Repeater</title>
+    <link rel="stylesheet" href="panel.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-bracket">[</span>
+                <span class="logo-text">ReVex</span>
+                <span class="logo-bracket">]</span>
+            </div>
+            <div class="header-subtitle">HTTP Repeater</div>
+            <div class="header-actions">
+                <button id="clearHistory" class="btn btn-secondary" title="Clear History">
+                    <span class="btn-icon">⌫</span> CLEAR
+                </button>
+                <button id="refreshHistory" class="btn btn-secondary" title="Refresh History">
+                    <span class="btn-icon">↻</span> REFRESH
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="main-grid">
+            <!-- Left Column: Request History -->
+            <section class="history-panel">
+                <div class="panel-header">
+                    <span class="panel-title">// REQUEST_HISTORY</span>
+                    <span id="historyCount" class="panel-count">[0]</span>
+                </div>
+                <div class="history-list" id="historyList">
+                    <div class="empty-state">
+                        <div class="empty-icon">◎</div>
+                        <div class="empty-text">NO REQUESTS CAPTURED</div>
+                        <div class="empty-subtext">Navigate to capture HTTP traffic</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Tabbed Editor -->
+            <section class="editor-panel">
+                <!-- Tab Bar -->
+                <div class="tab-bar">
+                    <button class="tab-btn active" data-tab="request">
+                        <span class="tab-icon">▲</span> REQUEST
+                    </button>
+                    <button class="tab-btn" data-tab="response">
+                        <span class="tab-icon">▼</span> RESPONSE
+                        <span id="responseStatusTab" class="tab-status"></span>
+                    </button>
+                    <div class="tab-actions">
+                        <button id="copyCurl" class="btn btn-secondary btn-curl" title="Copy as cURL">
+                            <span class="btn-icon">⌘</span> cURL
+                        </button>
+                        <button id="sendRequest" class="btn btn-primary btn-send">
+                            <span class="btn-icon">▶</span> SEND
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Request Tab Content -->
+                <div class="tab-content active" id="requestTab">
+                    <div class="editor-content">
+                        <!-- Method & URL Row -->
+                        <div class="editor-row method-url-row">
+                            <div class="input-group method-group">
+                                <label for="requestMethod">METHOD</label>
+                                <select id="requestMethod" class="input-field">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                    <option value="PUT">PUT</option>
+                                    <option value="PATCH">PATCH</option>
+                                    <option value="DELETE">DELETE</option>
+                                    <option value="HEAD">HEAD</option>
+                                    <option value="OPTIONS">OPTIONS</option>
+                                </select>
+                            </div>
+                            <div class="input-group url-group">
+                                <label for="requestUrl">TARGET_URL</label>
+                                <input type="text" id="requestUrl" class="input-field"
+                                    placeholder="https://target.com/api/endpoint">
+                            </div>
+                        </div>
+
+                        <!-- Raw Request Editor -->
+                        <div class="editor-row raw-editor-row">
+                            <div class="input-group">
+                                <label for="requestHeaders">HEADERS <span class="label-hint">(Header: Value
+                                        format)</span></label>
+                                <!-- Search Bar for Headers -->
+                                <div class="search-bar">
+                                    <span class="search-icon">⌕</span>
+                                    <input type="text" id="searchHeaders" class="search-input"
+                                        placeholder="Search headers...">
+                                    <span id="searchHeadersCount" class="search-count"></span>
+                                </div>
+                                <textarea id="requestHeaders" class="input-field textarea-field raw-textarea" rows="10"
+                                    placeholder="Host: example.com
+User-Agent: Mozilla/5.0
+Accept: */*
+Content-Type: application/json
+Cookie: session=abc123"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="editor-row body-row">
+                            <div class="input-group">
+                                <div class="label-row">
+                                    <label for="requestBody">BODY <span class="label-hint">(raw payload)</span></label>
+                                    <div class="label-actions">
+                                        <button id="decodeRequest" class="btn-inline" title="Decode selected text">
+                                            ◈ DECODE
+                                        </button>
+                                        <button id="prettifyBody" class="btn-inline" title="Format JSON">
+                                            { } PRETTIFY
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea id="requestBody" class="input-field textarea-field" rows="8"
+                                    placeholder='{"key": "value"}'></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Response Tab Content -->
+                <div class="tab-content" id="responseTab">
+                    <div class="response-header">
+                        <div class="response-meta">
+                            <span id="responseStatus" class="response-status-badge"></span>
+                            <span id="responseTime" class="response-time"></span>
+                            <span id="requestStatus" class="request-status"></span>
+                        </div>
+                        <div class="response-actions">
+                            <button id="decodeSelected" class="btn btn-secondary btn-decode"
+                                title="Decode selected text">
+                                <span class="btn-icon">◈</span> DECODE
+                            </button>
+                        </div>
+                        <div class="response-view-toggle">
+                            <button class="view-btn active" data-view="raw">RAW</button>
+                            <button class="view-btn" data-view="preview">PREVIEW</button>
+                        </div>
+                    </div>
+                    <!-- Search Bar for Response -->
+                    <div class="search-bar response-search">
+                        <span class="search-icon">⌕</span>
+                        <input type="text" id="searchResponse" class="search-input" placeholder="Search response...">
+                        <span id="searchResponseCount" class="search-count"></span>
+                        <button id="searchPrev" class="search-nav-btn" title="Previous">▲</button>
+                        <button id="searchNext" class="search-nav-btn" title="Next">▼</button>
+                    </div>
+                    <div class="response-body">
+                        <textarea id="responseOutput" class="input-field textarea-field response-textarea" readonly
+                            placeholder="// Send a request to see the response here..."></textarea>
+                        <iframe id="responsePreview" class="response-preview" sandbox="allow-same-origin"
+                            style="display: none;"></iframe>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span class="footer-text">Built by </span>
+            <a href="https://github.com/medjahdi" target="_blank" rel="noopener noreferrer"
+                class="footer-link">@medjahdi</a>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Decode Modal -->
+    <div id="decodeModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">// DECODER</span>
+                <button id="closeModal" class="modal-close">✕</button>
+            </div>
+            <div class="modal-body">
+                <div id="detectedType" class="detected-type"></div>
+                <label for="decodedOutput">DECODED OUTPUT</label>
+                <textarea id="decodedOutput" class="input-field textarea-field modal-textarea" readonly></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="copyDecoded" class="btn btn-primary">
+                    <span class="btn-icon">⎘</span> COPY
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="panel.js"></script>
+</body>
+
+</html>
